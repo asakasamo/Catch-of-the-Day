@@ -220,3 +220,5 @@ component (and perhaps its children) needs
 [23]
 
 - Proptypes let us validate the data that we're passing into our props 
+- Proptypes is a separate package 
+   - Other ways that this could be done would be using Typescript, or use flow (Facebook utility)
