@@ -222,3 +222,17 @@ component (and perhaps its children) needs
 - Proptypes let us validate the data that we're passing into our props 
 - Proptypes is a separate package 
    - Other ways that this could be done would be using Typescript, or use flow (Facebook utility)
+
+---
+
+[24]
+
+- Firebase authentication can be set up in the firebase console
+- We're going to set up Facebook, Twitter, and Github authentication
+   - For facebook, go to developers.facebook.com, create a new app, and proceed from there
+   - For twitter, go to apps.twitter.com, create a new app, and proceed from there
+   - For github, go to developer settings under personal settings, create a new app, proceed from there
+
+- Next we write some Auth handlers 
+
+- First we create auth providers

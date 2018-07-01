@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Header from "./Header";
 import Inventory from "./Inventory";
 import Order from "./Order";
@@ -12,7 +13,12 @@ class App extends React.Component {
       order: {}
    };
 
+   static propTypes = {
+      match: PropTypes.object
+   };
+
    componentDidMount() {
+      //get props from the router
       const { params } = this.props.match;
 
       //first reinstate our localStorage
@@ -110,6 +116,7 @@ class App extends React.Component {
                removeFromOrder={this.removeFromOrder}
             />
             <Inventory
+               storeId={this.props.match.params.storeId}
                fishes={this.state.fishes}
                addFish={this.addFish}
                deleteFish={this.deleteFish}
