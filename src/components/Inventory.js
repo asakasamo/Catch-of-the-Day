@@ -21,6 +21,15 @@ class Inventory extends React.Component {
       owner: null
    };
 
+   componentDidMount() {
+      //when the page is loaded, firebase checks if the user is logged in
+      firebase.auth().onAuthStateChanged((user) => {
+         if (user) {
+            this.authHandler({ user });
+         }
+      });
+   }
+
    authenticate = (provider) => {
       const authProvider = new firebase.auth[`${provider}AuthProvider`]();
       firebaseApp
