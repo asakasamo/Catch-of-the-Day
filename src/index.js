@@ -1,7 +1,7 @@
-//Starting point of our app
-import React from 'react';
-import { render } from 'react-dom';
+// Starting point of our app
+import React from "react";
+import { render } from "react-dom";
 import "./css/style.css";
 import Router from "./components/Router";
 
-render(<Router />, document.querySelector('#main'));
+render(<Router />, document.querySelector("#main"));
