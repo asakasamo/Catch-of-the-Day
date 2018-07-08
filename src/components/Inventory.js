@@ -63,7 +63,11 @@ class Inventory extends React.Component {
    };
 
    render() {
-      const logout = <button onClick={this.logout}>Log out</button>;
+      const logout = (
+         <button className="logout" onClick={this.logout}>
+            Log out
+         </button>
+      );
 
       //1. check if the user is logged in
       if (!this.state.uid) {
@@ -83,8 +87,12 @@ class Inventory extends React.Component {
       //3. They are the owner, so render the inventory
       return (
          <div className="inventory">
-            <h2>Inventory</h2>
-            {logout}
+            <div className="inventory-header">
+               <h2>Inventory</h2>
+               {logout}
+            </div>
+
+            <AddFishForm addFish={this.props.addFish} />
             {Object.keys(this.props.fishes).map((key) => (
                <EditFishForm
                   key={key}
@@ -94,7 +102,6 @@ class Inventory extends React.Component {
                   deleteFish={this.props.deleteFish}
                />
             ))}
-            <AddFishForm addFish={this.props.addFish} />
             <button onClick={this.props.loadSampleFishes}>
                Load Sample Fishes
             </button>

@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Header from "./Header";
 import Inventory from "./Inventory";
+import Menu from "./Menu";
 import Order from "./Order";
-import Fish from "./Fish";
 import sampleFishes from "../sample-fishes";
 import base from "../base";
 
@@ -97,32 +96,20 @@ class App extends React.Component {
    render() {
       return (
          <div className="catch-of-the-day">
-            <div className="menu">
-               <Header tagline="Fresh Seafood Market" />
-               <ul className="fishes">
-                  {Object.keys(this.state.fishes).map((key) => (
-                     <Fish
-                        key={key}
-                        index={key}
-                        details={this.state.fishes[key]}
-                        addToOrder={this.addToOrder}
-                     />
-                  ))}
-               </ul>
-            </div>
+            <Menu fishes={this.state.fishes} addToOrder={this.addToOrder} />
             <Order
                fishes={this.state.fishes}
                order={this.state.order}
                removeFromOrder={this.removeFromOrder}
             />
-            {/* <Inventory
+            <Inventory
                storeId={this.props.match.params.storeId}
                fishes={this.state.fishes}
                addFish={this.addFish}
                deleteFish={this.deleteFish}
                updateFish={this.updateFish}
                loadSampleFishes={this.loadSampleFishes}
-            /> */}
+            />
          </div>
       );
    }

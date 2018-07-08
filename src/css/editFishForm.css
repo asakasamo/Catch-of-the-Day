@@ -1,0 +1,37 @@
+.fish-edit {
+   margin-bottom: 20px;
+   border: 2px solid #000;
+   overflow: hidden;
+   display: flex;
+   flex-wrap: wrap;
+}
+.fish-edit input,
+.fish-edit textarea,
+.fish-edit select {
+   width: 33.33%;
+   padding: 10px;
+   line-height: 1;
+   font-size: 1.2rem;
+   border: 0;
+   border-bottom: 1px solid #000;
+   border-right: 1px solid #000;
+   appearance: none;
+   border-radius: 0;
+   background: #fff;
+}
+.fish-edit input:focus,
+.fish-edit textarea:focus,
+.fish-edit select:focus {
+   outline: 0;
+   background: #fff2d9;
+}
+.fish-edit textarea {
+   width: 100%;
+}
+.fish-edit input:last-of-type {
+   width: 100%;
+}
+.fish-edit button {
+   width: 100%;
+   border: 0;
+}

@@ -1,0 +1,38 @@
+div.menu {
+   flex: 5 1;
+}
+.list-of-fish {
+   border-top: 2px solid #000;
+   border-bottom: 1px solid #000;
+   padding-top: 5px;
+   margin-top: 2rem;
+   transform: translateZ(0);
+}
+.menu-fish {
+   border-bottom: 2px solid #000;
+   border-top: 1px solid #000;
+   padding-bottom: 2rem;
+   padding-top: 2rem;
+   margin-bottom: 5px;
+   clear: both;
+   overflow: hidden;
+}
+.menu-fish p {
+   margin: 0;
+   font-size: 1.8rem;
+}
+.menu-fish .fish-name {
+   margin: 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.menu-fish .price {
+   font-size: 1.4rem;
+   justify-content: flex-end;
+}
+.menu-fish img {
+   float: left;
+   width: 150px;
+   margin-right: 1rem;
+}
