@@ -30,25 +30,24 @@
    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
    overflow: auto;
 }
-.catch-of-the-day > *:first-child {
+
+/*******
+  Handles the "folded" transformation
+*/
+
+.catch-of-the-day.folded > *:first-child {
    transform: translateX(50%) rotateY(6deg) translateX(-50%);
 }
 
-.catch-of-the-day > *:last-child {
+.catch-of-the-day.folded > *:last-child {
    transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08)
       translateX(24px);
 }
 
-.catch-of-the-day > *:nth-child(2) {
+.catch-of-the-day.folded > *:nth-child(2) {
    transform: translateX(-50%) rotateY(-14deg) translateX(50%);
-   border-left: 0;
-   border-right: 0;
-   min-width: 300px;
 }
 
-input#fold:not(:checked) ~ #main .catch-of-the-day > * {
-   transform: none;
-}
 label[for="fold"] {
    position: absolute;
    top: 1rem;

@@ -26,17 +26,17 @@
 }
 
 .count-enter {
-   background: #f00;
+   background: #0f0;
    transition: 0.5s;
    transform: translateY(100%);
 }
 .count-enter.count-enter-active {
-   background: #ff0;
+   background: #0f0;
    transform: translateY(0);
 }
 
 .count-exit {
-   background: #000;
+   background: #0f0;
    transform: translateY(0);
    transition: 0.5s;
    position: absolute;
@@ -44,6 +44,6 @@
    bottom: 0;
 }
 .count-exit.count-exit-active {
-   background: #008000;
+   background: #0f0;
    transform: translateY(-100%);
 }

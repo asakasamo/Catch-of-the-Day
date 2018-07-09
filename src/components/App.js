@@ -9,7 +9,8 @@ import base from "../base";
 class App extends React.Component {
    state = {
       fishes: {},
-      order: {}
+      order: {},
+      folded: false
    };
 
    static propTypes = {
