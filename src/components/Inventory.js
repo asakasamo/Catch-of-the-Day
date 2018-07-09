@@ -64,7 +64,7 @@ class Inventory extends React.Component {
 
    render() {
       const logout = (
-         <button className="logout" onClick={this.logout}>
+         <button className="logout warning" onClick={this.logout}>
             Log out
          </button>
       );

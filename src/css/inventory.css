@@ -25,6 +25,11 @@ input[type="submit"] {
    position: relative;
    z-index: 2;
 }
+
+/********
+   Disabled buttons
+*/
+
 button[disabled],
 input[type="submit"][disabled] {
    color: #f00;
@@ -37,16 +42,24 @@ input[type="submit"][disabled]:hover {
    color: #f00;
    cursor: not-allowed;
 }
+button[disabled]:after {
+   display: none;
+}
 button[disabled]:after,
 input[type="submit"][disabled]:after {
    display: none;
 }
+
+/************
+   Button hover transitions
+*/
+
 button:after,
 input[type="submit"]:after {
    content: "";
    z-index: -1;
    display: block;
-   background: #000;
+   background: black;
    position: absolute;
    width: 100%;
    height: 0;
@@ -54,6 +67,7 @@ input[type="submit"]:after {
    top: 0;
    transition: all 0.2s;
 }
+
 button:hover,
 input[type="submit"]:hover,
 button:focus,
@@ -61,17 +75,20 @@ input[type="submit"]:focus {
    color: #fff;
    outline: 0;
 }
+
 button:hover:after,
 input[type="submit"]:hover:after,
 button:focus:after,
 input[type="submit"]:focus:after {
    height: 100%;
 }
+
 button.warning:after,
 input[type="submit"].warning:after {
    background: #f00;
 }
-button.success:after,
-input[type="submit"].success:after {
+
+button.confirm:after,
+input[type="submit"].confirm:after {
    background: #008000;
 }

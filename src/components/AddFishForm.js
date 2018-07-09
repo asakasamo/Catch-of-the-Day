@@ -34,7 +34,7 @@ class AddFishForm extends React.Component {
 
    render() {
       return (
-         <form className="fish-edit" onSubmit={this.createFish}>
+         <form className="fish-edit new-fish" onSubmit={this.createFish}>
             <input
                name="name"
                ref={this.nameRef}
@@ -49,7 +49,7 @@ class AddFishForm extends React.Component {
             />
 
             <select name="status" ref={this.statusRef}>
-               <option value="available">Fresh!</option>
+               <option value="available">Available!</option>
                <option value="unavailable">Sold Out!</option>
             </select>
 
@@ -62,9 +62,11 @@ class AddFishForm extends React.Component {
                name="image"
                ref={this.imageRef}
                type="text"
-               placeholder="Image"
+               placeholder="Image URL"
             />
-            <button type="submit">+ Add Fish</button>
+            <button className="confirm" type="submit">
+               + Add Fish
+            </button>
          </form>
       );
    }

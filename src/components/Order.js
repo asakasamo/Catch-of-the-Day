@@ -37,7 +37,7 @@ class Order extends React.Component {
          <CSSTransition {...transitionOptions}>
             <li key={key}>
                <button
-                  className="remove-fish"
+                  className="remove-fish warning"
                   onClick={() => this.props.removeFromOrder(key)}
                >
                   &times;

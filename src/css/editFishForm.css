@@ -35,3 +35,7 @@
    width: 100%;
    border: 0;
 }
+
+.fish-edit.new-fish > * {
+   background: rgb(255, 255, 216);
+}
