@@ -32,12 +32,14 @@ class EditFishForm extends React.Component {
                name="name"
                value={this.props.fish.name}
                onChange={this.handleChange}
+               placeholder="Name"
             />
             <input
                type="text"
                name="price"
                value={this.props.fish.price}
                onChange={this.handleChange}
+               placeholder="Price"
             />
 
             <select
@@ -45,7 +47,7 @@ class EditFishForm extends React.Component {
                value={this.props.fish.status}
                onChange={this.handleChange}
             >
-               <option value="available">Fresh!</option>
+               <option value="available">Available!</option>
                <option value="unavailable">Sold Out!</option>
             </select>
 
@@ -53,14 +55,19 @@ class EditFishForm extends React.Component {
                name="desc"
                value={this.props.fish.desc}
                onChange={this.handleChange}
+               placeholder="Description"
             />
             <input
                type="text"
                name="image"
                value={this.props.fish.image}
                onChange={this.handleChange}
+               placeholder="Image URL"
             />
-            <button onClick={() => this.props.deleteFish(this.props.index)}>
+            <button
+               className="warning"
+               onClick={() => this.props.deleteFish(this.props.index)}
+            >
                Delete Fish
             </button>
          </div>
