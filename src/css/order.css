@@ -25,7 +25,7 @@ ul.order li button {
    display: none;
    line-height: 1;
    padding: 2px;
-   margin-right: 5px;
+   margin-right: 2px;
 }
 ul.order li.total {
    font-weight: 600;
