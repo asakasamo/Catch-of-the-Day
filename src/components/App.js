@@ -13,6 +13,8 @@ class App extends React.Component {
       folded: false
    };
 
+   wrapperRef = React.createRef();
+
    static propTypes = {
       match: PropTypes.object
    };
@@ -96,22 +98,28 @@ class App extends React.Component {
 
    render() {
       return (
-         <div className="catch-of-the-day">
-            <Menu fishes={this.state.fishes} addToOrder={this.addToOrder} />
-            <Order
-               fishes={this.state.fishes}
-               order={this.state.order}
-               removeFromOrder={this.removeFromOrder}
-            />
-            <Inventory
-               storeId={this.props.match.params.storeId}
-               fishes={this.state.fishes}
-               addFish={this.addFish}
-               deleteFish={this.deleteFish}
-               updateFish={this.updateFish}
-               loadSampleFishes={this.loadSampleFishes}
-            />
-         </div>
+         <React.Fragment>
+            <div className="catch-of-the-day" ref={this.wrapperRef}>
+               <Menu
+                  fishes={this.state.fishes}
+                  addToOrder={this.addToOrder}
+                  wrapperRef={this.wrapperRef}
+               />
+               <Order
+                  fishes={this.state.fishes}
+                  order={this.state.order}
+                  removeFromOrder={this.removeFromOrder}
+               />
+               <Inventory
+                  storeId={this.props.match.params.storeId}
+                  fishes={this.state.fishes}
+                  addFish={this.addFish}
+                  deleteFish={this.deleteFish}
+                  updateFish={this.updateFish}
+                  loadSampleFishes={this.loadSampleFishes}
+               />
+            </div>
+         </React.Fragment>
       );
    }
 }

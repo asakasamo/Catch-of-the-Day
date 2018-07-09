@@ -48,25 +48,6 @@
    transform: translateX(-50%) rotateY(-14deg) translateX(50%);
 }
 
-label[for="fold"] {
-   position: absolute;
-   top: 1rem;
-   left: 1rem;
-   text-transform: uppercase;
-   font-size: 1.3rem;
-   background: #000;
-   color: #fff;
-   border: 2px solid #000;
-   cursor: pointer;
-   padding: 0.5rem 1rem;
-}
-input#fold {
-   display: none;
-}
-input#fold:checked + label {
-   background: #fff;
-   color: #000;
-}
 ul {
    list-style: none;
    margin: 0;

@@ -12,6 +12,18 @@ class Menu extends React.Component {
    render() {
       return (
          <div className="menu">
+            <button
+               className="fold"
+               onClick={() =>
+                  this.props.wrapperRef.current.classList.toggle("folded")
+               }
+            >
+               <span>d</span>
+               <span>l</span>
+               <span>o</span>
+               <span>F</span>
+            </button>
+
             <Header tagline="Fresh Seafood Market" />
             <ul className="fishes">
                {Object.keys(this.props.fishes).map((key) => (
