@@ -1,6 +1,7 @@
 div.order-wrap {
    flex: 1 5;
    min-width: 300px;
+   overflow-x: hidden;
 }
 
 ul.order {
