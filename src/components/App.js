@@ -4,7 +4,7 @@ import Inventory from "./Inventory";
 import Menu from "./Menu";
 import Order from "./Order";
 import sampleFishes from "../sample-fishes";
-import base, { firebaseApp } from "../base";
+import base from "../base";
 
 class App extends React.Component {
    state = {

@@ -17,11 +17,15 @@ const Login = (props) => (
       <button className="twitter" onClick={() => props.authenticate("Twitter")}>
          Log in with Twitter
       </button>
+      <button className="anonymous" onClick={props.authenticateAnon}>
+         Log in Anonymously
+      </button>
    </nav>
 );
 
 Login.propTypes = {
-   authenticate: PropTypes.func.isRequired
+   authenticate: PropTypes.func.isRequired,
+   authenticateAnon: PropTypes.func.isRequired
 };
 
 export default Login;

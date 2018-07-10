@@ -84,7 +84,12 @@ class Inventory extends React.Component {
 
       //1. check if the user is logged in
       if (!this.state.uid) {
-         return <Login authenticate={this.authenticate} />;
+         return (
+            <Login
+               authenticate={this.authenticate}
+               authenticateAnon={this.authenticateAnon}
+            />
+         );
       }
 
       //2. check if they are not the owner of the store
