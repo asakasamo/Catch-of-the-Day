@@ -52,17 +52,3 @@ div.existing-stores button {
    flex: 1;
    width: 49%;
 }
-
-.demo {
-   display: flex;
-   justify-content: center;
-   background: palegreen;
-}
-
-.demo button {
-   width: auto;
-}
-
-.demo button * {
-   margin: 1rem;
-}

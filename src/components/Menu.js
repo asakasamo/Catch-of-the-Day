@@ -10,6 +10,7 @@ class Menu extends React.Component {
    };
 
    render() {
+      const storeIsEmpty = Object.keys(this.props.fishes).length === 0;
       return (
          <div className="menu">
             <button
@@ -25,6 +26,15 @@ class Menu extends React.Component {
             </button>
 
             <Header tagline="Fresh Seafood Market" />
+
+            {storeIsEmpty ? (
+               <span className="empty-store">
+                  (This store's inventory is empty)
+               </span>
+            ) : (
+               ""
+            )}
+
             <ul className="fishes">
                {Object.keys(this.props.fishes).map((key) => (
                   <Fish

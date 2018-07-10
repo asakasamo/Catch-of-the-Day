@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Login = (props) => (
-   <nav className="login">
+   <div className="login">
       <h2>Inventory</h2>
       <p>Log in to manage this store's inventory.</p>
       <button className="github" onClick={() => props.authenticate("Github")}>
@@ -20,7 +20,7 @@ const Login = (props) => (
       <button className="anonymous" onClick={props.authenticateAnon}>
          Log in Anonymously
       </button>
-   </nav>
+   </div>
 );
 
 Login.propTypes = {
