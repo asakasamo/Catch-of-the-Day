@@ -13,8 +13,7 @@ class Inventory extends React.Component {
       fishes: PropTypes.object,
       updateFish: PropTypes.func,
       deleteFish: PropTypes.func,
-      loadSampleFishes: PropTypes.func,
-      isDemo: PropTypes.bool
+      loadSampleFishes: PropTypes.func
    };
 
    state = {
@@ -23,22 +22,12 @@ class Inventory extends React.Component {
    };
 
    componentDidMount() {
-      if (this.props.isDemo) {
-         this.authenticateAnon();
-      } else {
-         //when the page is loaded, firebase checks if the user is logged in
-         firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-               this.authHandler({ user });
-            }
-         });
-      }
-   }
-
-   componentWillUnmount() {
-      if (this.state.isDemo) {
-         this.logout();
-      }
+      //when the page is loaded, firebase checks if the user is logged in
+      firebase.auth().onAuthStateChanged((user) => {
+         if (user) {
+            this.authHandler({ user });
+         }
+      });
    }
 
    authenticate = (provider) => {
@@ -51,10 +40,11 @@ class Inventory extends React.Component {
    };
 
    authenticateAnon = () => {
-      //check if it's the demo store
+      console.log("Logging in anonymously");
       firebaseApp
          .auth()
          .signInAnonymously()
+         .then(this.authHandler)
          .catch(function(error) {
             console.log(error.message);
          });
@@ -63,6 +53,7 @@ class Inventory extends React.Component {
    authHandler = async (authData) => {
       //1. look up the current store in the firebase database
       const store = await base.fetch(this.props.storeId, { context: this });
+
       //2. claim it if there is no owner
       if (!store.owner) {
          //save it as our own
@@ -70,6 +61,7 @@ class Inventory extends React.Component {
             data: authData.user.uid
          });
       }
+
       //3. set the state of the inventory component to reflect the current user
       this.setState({
          uid: authData.user.uid,
@@ -84,7 +76,6 @@ class Inventory extends React.Component {
    };
 
    render() {
-      //Don't show the logout button for the demo
       const logout = (
          <button className="logout warning" onClick={this.logout}>
             Log out

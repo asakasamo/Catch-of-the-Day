@@ -10,8 +10,7 @@ class App extends React.Component {
    state = {
       fishes: {},
       order: {},
-      folded: false,
-      isDemo: false
+      folded: false
    };
 
    wrapperRef = React.createRef();
@@ -30,11 +29,6 @@ class App extends React.Component {
          this.setState({ order: JSON.parse(localStorageRef) });
       }
 
-      //set demo state
-      if (params.storeId === "demo") {
-         this.setState({ isDemo: true });
-      }
-
       //store the reference to the database
       this.ref = base.syncState(`${params.storeId}/fishes`, {
          context: this,
@@ -50,9 +44,6 @@ class App extends React.Component {
    }
 
    componentWillUnmount() {
-      if (this.state.isDemo) {
-         firebaseApp.auth().signOut();
-      }
       base.removeBinding(this.ref);
    }
 
@@ -126,7 +117,6 @@ class App extends React.Component {
                   deleteFish={this.deleteFish}
                   updateFish={this.updateFish}
                   loadSampleFishes={this.loadSampleFishes}
-                  isDemo={this.state.isDemo}
                />
             </div>
          </React.Fragment>

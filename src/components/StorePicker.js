@@ -39,11 +39,6 @@ class StorePicker extends React.Component {
       if (storeName) this.props.history.push(`/store/${storeName}`);
    };
 
-   goToDemoStore = (event) => {
-      event.preventDefault();
-      this.props.history.push("/store/demo");
-   };
-
    /**
     * Generates a random store ID and puts it in the input box
     */
@@ -122,12 +117,6 @@ class StorePicker extends React.Component {
                      Visit Store
                   </button>
                </div>
-            </form>
-
-            <form className="store-selector demo" onSubmit={this.goToDemoStore}>
-               <button type="submit" className="confirm">
-                  <h2>View a demo store</h2>
-               </button>
             </form>
          </React.Fragment>
       );
