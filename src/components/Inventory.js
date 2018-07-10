@@ -13,7 +13,8 @@ class Inventory extends React.Component {
       fishes: PropTypes.object,
       updateFish: PropTypes.func,
       deleteFish: PropTypes.func,
-      loadSampleFishes: PropTypes.func
+      loadSampleFishes: PropTypes.func,
+      isDemo: PropTypes.bool
    };
 
    state = {
@@ -22,12 +23,22 @@ class Inventory extends React.Component {
    };
 
    componentDidMount() {
-      //when the page is loaded, firebase checks if the user is logged in
-      firebase.auth().onAuthStateChanged((user) => {
-         if (user) {
-            this.authHandler({ user });
-         }
-      });
+      if (this.props.isDemo) {
+         this.authenticateAnon();
+      } else {
+         //when the page is loaded, firebase checks if the user is logged in
+         firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+               this.authHandler({ user });
+            }
+         });
+      }
+   }
+
+   componentWillUnmount() {
+      if (this.state.isDemo) {
+         this.logout();
+      }
    }
 
    authenticate = (provider) => {
@@ -37,6 +48,16 @@ class Inventory extends React.Component {
          .signInWithPopup(authProvider)
          .then(this.authHandler)
          .catch((error) => console.log(error));
+   };
+
+   authenticateAnon = () => {
+      //check if it's the demo store
+      firebaseApp
+         .auth()
+         .signInAnonymously()
+         .catch(function(error) {
+            console.log(error.message);
+         });
    };
 
    authHandler = async (authData) => {
@@ -63,6 +84,7 @@ class Inventory extends React.Component {
    };
 
    render() {
+      //Don't show the logout button for the demo
       const logout = (
          <button className="logout warning" onClick={this.logout}>
             Log out
@@ -102,7 +124,7 @@ class Inventory extends React.Component {
                   deleteFish={this.props.deleteFish}
                />
             ))}
-            <button onClick={this.props.loadSampleFishes}>
+            <button className="centered" onClick={this.props.loadSampleFishes}>
                Load Sample Fishes
             </button>
          </div>

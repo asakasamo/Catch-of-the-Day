@@ -9,6 +9,7 @@
 @import "menu.css";
 @import "inventory.css";
 @import "login.css";
+@import "storePicker.css";
 
 .catch-of-the-day {
    display: flex;
@@ -19,6 +20,7 @@
    margin-top: 5vh;
    perspective: 1000px;
    transform-style: preserve-3d;
+   box-shadow: 1px 1px 10px;
 }
 
 .catch-of-the-day > * {
@@ -48,25 +50,6 @@
    transform: translateX(-50%) rotateY(-14deg) translateX(50%);
 }
 
-ul {
-   list-style: none;
-   margin: 0;
-   padding: 0;
-}
-
-.store-selector {
-   background: #fff;
-   max-width: 500px;
-   margin: 50px auto;
-   padding: 2rem;
-   border: 2px solid #000;
-}
-.store-selector input,
-.store-selector button {
-   width: 100%;
-}
-.store-selector input[type="text"],
-.store-selector button[type="text"] {
-   text-align: center;
-   font-size: 3rem;
+.folded {
+   box-shadow: none;
 }

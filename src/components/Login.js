@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 const Login = (props) => (
    <nav className="login">
-      <h2>Inventory Login</h2>
-      <p>Sign in to manage this store's inventory.</p>
+      <h2>Inventory</h2>
+      <p>Log in to manage this store's inventory.</p>
       <button className="github" onClick={() => props.authenticate("Github")}>
          Log in with Github
       </button>
