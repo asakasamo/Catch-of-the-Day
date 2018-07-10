@@ -12,6 +12,15 @@ class AddFishForm extends React.Component {
       addFish: PropTypes.func
    };
 
+   validatePriceInput = (event) => {
+      const inputValue = event.currentTarget.value;
+      event.currentTarget.value = parseFloat(event.currentTarget.value);
+
+      if (!inputValue || isNaN(inputValue) || !isFinite(inputValue)) {
+         event.currentTarget.value = 0;
+      }
+   };
+
    createFish = (event) => {
       //stop the form from submitting
       event.preventDefault();
@@ -40,12 +49,15 @@ class AddFishForm extends React.Component {
                ref={this.nameRef}
                type="text"
                placeholder="Name"
+               required
             />
             <input
                name="price"
                ref={this.priceRef}
                type="text"
                placeholder="Price"
+               required
+               onChange={this.validatePriceInput}
             />
 
             <select name="status" ref={this.statusRef}>
@@ -57,12 +69,14 @@ class AddFishForm extends React.Component {
                name="desc"
                ref={this.descRef}
                placeholder="Description"
+               required
             />
             <input
                name="image"
                ref={this.imageRef}
                type="text"
                placeholder="Image URL"
+               required
             />
             <button className="confirm" type="submit">
                + Add Fish
