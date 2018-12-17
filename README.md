@@ -1,5 +1,5 @@
 # Catch of the Day
-A web store simulator in React
+A web store simulator built in React
 > [Demo](https://asakasamo.github.io/Catch-of-the-Day/)
 
 ## Tools used
